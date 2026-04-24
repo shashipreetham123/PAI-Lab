@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Timetable</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .info-box {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+            padding: 14px 8px;
+            text-align: center;
+            border: 1px solid #2980b9;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+            height: 70px;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .sno-col {
+            width: 5%;
+        }
+        
+        .name-col {
+            width: 18%;
+            text-align: left;
+            padding-left: 10px;
+        }
+        
+        .period-col {
+            width: 12%;
+        }
+        
+        .break-col {
+            width: 4%;
+            background-color: #fff3cd;
+            color: #856404;
+            font-weight: bold;
+        }
+        
+        .break-header {
+            background-color: #ffc107;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            width: 4%;
+        }
+        
+        .subject {
+            font-size: 0.8rem;
+            line-height: 1.2;
+            margin: 2px 0;
+        }
+        
+        .teacher-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                padding: 10px;
+                overflow-x: auto;
+            }
+            
+            table {
+                font-size: 0.75rem;
+            }
+            
+            .subject {
+                font-size: 0.7rem;
+            }
+            
+            .break-header {
+                writing-mode: horizontal-tb;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Teacher Timetable</h1>
+            <p class="subtitle">8 Periods Daily Schedule with Subject Assignments</p>
+        </header>
+        
+        <div class="info-box">
+            <p><strong>Note:</strong> This timetable shows the schedule for teachers across 8 periods with breaks between periods II-III and IV-V.</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="sno-col">S.No</th>
+                    <th class="name-col">Name of Teacher</th>
+                    <th class="period-col">I</th>
+                    <th class="period-col">II</th>
+                    <th class="break-header">Break</th>
+                    <th class="period-col">III</th>
+                    <th class="period-col">IV</th>
+                    <th class="break-header">Break</th>
+                    <th class="period-col">V</th>
+                    <th class="period-col">VI</th>
+                    <th class="period-col">VII</th>
+                    <th class="period-col">VIII</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="name-col teacher-name">Vishnumurthy SA (Phy)</td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">X Phy (1-5)</div>
+                        <div class="subject">6-Lab</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Phy (1-5)</div>
+                        <div class="subject">6-Lab</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="name-col teacher-name">C. Manjula SA (Math)</td>
+                    <td class="period-col">
+                        <div class="subject">X Maths (1-6)</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">IX Maths (5,6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Maths (1-6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">IX Math (1-6)</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">VIII Maths (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="name-col teacher-name">V. Mallaiah SA (Eng)</td>
+                    <td class="period-col">
+                        <div class="subject">IX English (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">X Eng (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VI Eng (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Eng (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="name-col teacher-name">E. Balram SA (Social)</td>
+                    <td class="period-col">
+                        <div class="subject">VIII Social (1-6)</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">VI Social (1-6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Social (1-6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Social (1-6)</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">IX Social (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="name-col teacher-name">V. Jangaiah SA (BIO)</td>
+                    <td class="period-col">
+                        <div class="subject">VII G.S (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">IX Bio (1-4)</div>
+                        <div class="subject">5-H.E, 6-Lab</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">VII Bio (1-4)</div>
+                        <div class="subject">5-H.E, 6-Lab</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">X Bio (1-4)</div>
+                        <div class="subject">5-H.E, 6-Lab</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="name-col teacher-name">K. Seenaiah SA (Tel)</td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Tel (1-6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VIII Tel (1-6)</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">IX Tel (1-6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">X Tel (1-6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="name-col teacher-name">K. Ramesh Kumar SA (Hin)</td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">IX Hindi (1-4)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Hin (1-4)</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">VI Hin</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VI (1-4)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="name-col teacher-name">G. Puram chand Pd</td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="name-col teacher-name">K. Laxmaial goud SA (Eng)</td>
+                    <td class="period-col">
+                        <div class="subject">VI Math (1-6)</div>
+                    </td>
+                    <td class="period-col">
+                        <div class="subject">VIII Eng (1-6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="name-col teacher-name">Saraswathi</td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">IX (5, 6)</div>
+                    </td>
+                    <td class="break-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VII Craft (5,6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col">
+                        <div class="subject">VI (5, 6)</div>
+                    </td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="name-col teacher-name"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="break-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                    <td class="period-col"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            <p>Teacher Timetable | 8 Periods with Breaks | Subject Assignments</p>
+        </div>
+    </div>
+</body>
+</html>
